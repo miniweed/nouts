@@ -1,0 +1,242 @@
+:root {
+  --bg: #ffffff;
+  --fg: #37352f;
+  --secondary: #5f5e5b;
+  --muted: #a5a29c;
+  --control-border: #e0ded9;
+  --control-bg: #ffffff;
+  --field-bg: #f7f6f3;
+  --code-bg: #f1efec;
+  --quote-border: #d6d3cd;
+  --btn-fg: #ffffff;
+  --btn-bg: #37352f;
+  --danger: #d44;
+  --ok: #2e9e5b;
+  --warn: #d4a72c;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #191919;
+  --fg: #e8e6e3;
+  --secondary: #b3b0aa;
+  --muted: #86837d;
+  --control-border: #3f3d3b;
+  --control-bg: #252525;
+  --field-bg: #2a2a28;
+  --code-bg: #2c2b29;
+  --quote-border: #4a4844;
+  --btn-fg: #191919;
+  --btn-bg: #e8e6e3;
+  --danger: #ff7369;
+  --ok: #4cb782;
+  --warn: #d4a72c;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+.share-theme-toggle {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  border: 1px solid var(--control-border);
+  background: var(--control-bg);
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.share-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px 120px;
+}
+
+.share-header h1 {
+  font-size: 34px;
+  margin: 0 0 6px;
+}
+
+.share-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.live-dot.on {
+  background: var(--ok);
+}
+
+.live-dot.off {
+  background: var(--warn);
+}
+
+.share-content {
+  font-size: 16px;
+}
+
+.share-content h1,
+.share-content h2,
+.share-content h3 {
+  margin-top: 1.6em;
+  margin-bottom: 0.4em;
+}
+
+.share-content a {
+  color: inherit;
+}
+
+.share-content pre {
+  background: var(--field-bg);
+  border-radius: 8px;
+  padding: 14px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+.share-content code {
+  background: var(--code-bg);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.9em;
+}
+
+.share-content pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Casillas de tarea (GFM). marked genera <li><input type=checkbox disabled>. */
+.share-content li:has(> input[type="checkbox"]) {
+  list-style: none;
+  margin-left: -1.4em;
+}
+
+.share-content input[type="checkbox"] {
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+.share-content blockquote {
+  border-left: 3px solid var(--quote-border);
+  margin-left: 0;
+  padding-left: 16px;
+  color: var(--secondary);
+}
+
+.share-content img {
+  max-width: 100%;
+}
+
+.share-content table {
+  border-collapse: collapse;
+}
+
+.share-content th,
+.share-content td {
+  border: 1px solid var(--control-border);
+  padding: 6px 12px;
+}
+
+.share-message {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+}
+
+.share-message h1 {
+  font-size: 48px;
+  margin: 0 0 8px;
+}
+
+.lock-note {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.unlock-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.unlock-form input {
+  font-size: 14px;
+  padding: 8px 10px;
+  border: 1px solid var(--control-border);
+  border-radius: 6px;
+  outline: none;
+  background: var(--control-bg);
+  color: var(--fg);
+}
+
+.unlock-form button {
+  font-size: 14px;
+  padding: 8px 16px;
+  border: 1px solid var(--control-border);
+  border-radius: 6px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  cursor: pointer;
+}
+
+.unlock-form button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.unlock-error {
+  color: var(--danger);
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+/* Las tablas anchas hacen scroll dentro de su propio contenedor. */
+.share-content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 640px) {
+  .share-page {
+    padding: 40px 18px 100px;
+  }
+
+  .share-header h1 {
+    font-size: 27px;
+  }
+
+  .share-content {
+    font-size: 15px;
+  }
+}

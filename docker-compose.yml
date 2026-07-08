@@ -1,0 +1,21 @@
+# Despliegue normal fuera de Umbrel (desarrollo/pruebas locales).
+# Refleja el endurecimiento del paquete Umbrel para tener paridad dev/prod.
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    user: "1000:1000"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+    environment:
+      - PORT=3000
+      - DATA_DIR=/data
+    volumes:
+      - ./data:/data
+    restart: on-failure

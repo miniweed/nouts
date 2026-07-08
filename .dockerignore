@@ -1,0 +1,9 @@
+node_modules
+**/node_modules
+**/dist
+data
+umbrel
+.git
+.claude
+Dockerfile
+docker-compose.yml
