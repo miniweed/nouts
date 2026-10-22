@@ -2,7 +2,7 @@ manifestVersion: 1
 id: miniweed-nouts
 category: files
 name: Nouts
-version: "1.0.0"
+version: "1.0.1"
 icon: https://raw.githubusercontent.com/miniweed/umbrel-app-store/main/miniweed-nouts/icon.svg
 tagline: Páginas tipo Notion en markdown, compartibles con un link en vivo
 description: >-
@@ -20,14 +20,10 @@ description: >-
   compartas explícitamente son públicas. Diseñada para funcionar detrás de un
   reverse proxy o túnel (Cloudflare Tunnel, WireGuard + Caddy, etc.).
 releaseNotes: >-
-  Primera versión de Nouts. Crea páginas en markdown con un editor visual,
-  organízalas en carpetas y compártelas con un link público en vivo (slug
-  personalizable y contraseña opcional).
-
-
-  Incluye búsqueda de texto, papelera con restauración, dominio público
-  configurable para los links, interfaz adaptada a móvil, modo oscuro, subida de
-  imágenes y export/import de todas las páginas.
+  Actualización de seguridad: la imagen pasa a Node.js 22.23.4, que corrige las
+  vulnerabilidades publicadas por Node.js el 21 de octubre de 2026 (entre ellas
+  un fallo en el decodificador Brotli y dos en la verificación del nombre de
+  host en TLS). Sin cambios funcionales.
 developer: miniweed
 website: https://github.com/miniweed/nouts
 dependencies: []

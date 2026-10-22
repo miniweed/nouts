@@ -2,7 +2,7 @@
 
 # El build JS es independiente de la arquitectura: se ejecuta en la plataforma
 # nativa del builder para evitar emular esbuild/rollup bajo QEMU.
-FROM --platform=$BUILDPLATFORM node:22-bookworm-slim AS build
+FROM --platform=$BUILDPLATFORM node:22.23.4-bookworm-slim AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 COPY server/package.json server/package.json
@@ -12,14 +12,14 @@ COPY server server
 COPY web web
 RUN npm run build
 
-FROM node:22-bookworm-slim AS prod-deps
+FROM node:22.23.4-bookworm-slim AS prod-deps
 WORKDIR /app
 COPY package.json package-lock.json ./
 COPY server/package.json server/package.json
 COPY web/package.json web/package.json
 RUN npm ci --omit=dev --workspace server
 
-FROM node:22-bookworm-slim
+FROM node:22.23.4-bookworm-slim
 LABEL org.opencontainers.image.source="https://github.com/miniweed/nouts"
 ENV NODE_ENV=production \
     PORT=3000 \
