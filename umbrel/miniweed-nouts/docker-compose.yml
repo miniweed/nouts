@@ -7,7 +7,7 @@ services:
       PROXY_AUTH_WHITELIST: "/s/*,/api/public/*,/uploads/*,/assets/*,/favicon*"
 
   web:
-    image: ghcr.io/miniweed/nouts:1.0.0@sha256:2569be035f435c82b3bbb4b8977938da1d9bc6df7e12d5fd01f3532651fdbfc7
+    image: ghcr.io/miniweed/nouts:1.0.1@sha256:3ae6a532b0bc89e9e6f81736f0bbbf556f81df7983466ea7266d5c6e5545145e
     restart: on-failure
     stop_grace_period: 15s
     user: "1000:1000"
